@@ -2,7 +2,7 @@ import collections
 
 def findConSinks(filePath):
 
-    #dictionary marking coordinate relation of to be connected to each pipe type
+    #dictionary marking delta coordinate relation of each opening of the pipe
     pipeCons = {
         '═': [(-1, 0), (1, 0)],        
         '║': [(0, 1), (0, -1)],        
