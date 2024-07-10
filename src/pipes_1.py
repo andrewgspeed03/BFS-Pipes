@@ -40,12 +40,12 @@ def findConSinks(filePath):
         conCoords = getNeighbors(coord[0], coord[1], grid[coord])
         neighbors = []
 
-        for c in grid: 
-            if c == coord:
-                continue
-            temp = getNeighbors(c[0],c[1], grid[c])
-            if coord in temp and c in conCoords:
-                neighbors.append(c)
+        for c in conCoords: 
+            if c in grid:
+                test = grid[c]
+                temp = getNeighbors(c[0],c[1], test)
+                if coord in temp:
+                    neighbors.append(c)
 
         return {coord:neighbors}
 
