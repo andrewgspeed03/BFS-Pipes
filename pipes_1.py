@@ -1,6 +1,5 @@
 import collections
 
-
 def findConSinks(filePath):
 
     #dictionary marking coordinate relation of to be connected to each pipe type
