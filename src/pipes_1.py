@@ -18,7 +18,7 @@ def findConSinks(filePath):
 
     #parses through the input and adds all elements to grid dictionary and tracks starting location of the source
     def readInput(filePath):
-        with open(filePath, 'r') as file:
+        with open(filePath, 'r', encoding='utf-8') as file:
             data = file.readlines()
         grid, src = {}, None
         for line in data:
@@ -51,7 +51,7 @@ def findConSinks(filePath):
 
     #Breadth First Search Algorithm to Trace from Source to Sinks
     def bfs(grid, fullGrid, source):
-        queue, visited, conSinks = collections.deque([source]), set(), []
+        queue, visited, conSinks = collections.deque([source]), set(), set()
 
         while queue:
             temp = queue.popleft()
@@ -62,8 +62,8 @@ def findConSinks(filePath):
                 if i not in visited:
                     queue.append(i)
                     #Checks if the current element connected to the source is a sink
-                    if fullGrid[i].isUpper():
-                        conSinks.append(fullGrid[i])
+                    if fullGrid[i].isupper():
+                        conSinks.add(fullGrid[i])
 
         return conSinks
 
@@ -77,5 +77,5 @@ def findConSinks(filePath):
     #return sorted string of connected sinks
     return "".join(sorted(bfs(conCoords, fullGrid, source)))
 
-file_path = 'coding_qual_input.txt'  # Replace with your input file path
+file_path = 'C:/Users/aache/projects/BFS Pipes/src/coding_qual_input.txt'  # Replace with your input file path
 print(findConSinks(file_path))
